@@ -99,3 +99,18 @@ SELECT e.FirstName AS EmployeeName,
        ISNULL(m.FirstName, 'No Manager') AS ManagerName
 FROM Employees e
 LEFT JOIN Employees m ON e.ManagerID = m.EmployeeID;
+
+
+--14.Get all projects and employees assigned to them — include projects with no employees and employees with no projects.
+SELECT  p.ProjectName, e.FirstName, e.LastName 
+FROM Projects p 
+FULL OUTER JOIN EmployeeProjects ep ON p.ProjectID = ep.ProjectID 
+FULL OUTER JOIN Employees e ON ep.EmployeeID = e.EmployeeID;
+
+--15. Find departments where the total salary of employees exceeds 150000.
+SELECT d.DepartmentName, ISNULL(SUM(e.Salary), 0) as TotalSalary 
+FROM Departments d 
+LEFT OUTER JOIN Employees e ON d.DepartmentID = e.DepartmentID
+GROUP BY d.DepartmentName
+HAVING SUM(e.Salary) > 150000;
+
