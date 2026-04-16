@@ -49,5 +49,4 @@ SELECT Department, COUNT(*) AS Total_Employees FROM Employees WHERE Salary > 700
 SELECT EXTRACT(YEAR FROM JoinDate) AS Joining_Year, ROUND(AVG(Salary),2) AS Average_Salary FROM Employees GROUP BY Joining_Year;
 
 --Q15. Show city-wise count of employees who joined in the last 5 years.
-
 SELECT City, COUNT(*) FROM EMPLOYEES WHERE EXTRACT(YEAR FROM JoinDate) >= EXTRACT(YEAR FROM CURRENT_DATE) - 5 GROUP BY City;
