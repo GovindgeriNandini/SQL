@@ -55,3 +55,15 @@ CASE
 	ELSE 'Self-Pay'
 END AS insurance_coverage
 FROM patients;
+
+
+--Q6. For each doctor, display availability status as "Available Now" or "Not Available" based on the is_available column.
+
+SELECT full_name, specialization,
+CASE
+	WHEN is_available = TRUE THEN 'Available Now'
+	ELSE 'Not Available'
+END AS availability_status
+FROM doctors;
+
+
