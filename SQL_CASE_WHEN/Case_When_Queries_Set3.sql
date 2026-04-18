@@ -76,3 +76,16 @@ CASE
 	ELSE 'Standard Ward'
 END AS ward_label
 FROM ward_admissions;
+
+--Q8. Flag each appointment's duration: under 30 minutes as "Short", 30–60 minutes as "Standard", 
+		--above 60 minutes as "Long". Show appt_id, duration, and flag.
+
+SELECT appt_id, duration_mins, 
+CASE
+	WHEN duration_mins < 30 THEN 'Short'
+	WHEN duration_mins BETWEEN 30 AND 60 THEN 'Standard'
+	ELSE 'Long'
+END AS duration_label
+FROM appointments;
+
+
