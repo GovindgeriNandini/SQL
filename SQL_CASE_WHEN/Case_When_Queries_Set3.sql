@@ -43,3 +43,15 @@ CASE
 	ELSE 'Low'
 END AS priority
 FROM appointments;
+
+
+--Q5. Label each patient's insurance coverage: "Premium" as "Full Cover", "Basic" as "Partial Cover", "None" as "Self-Pay".
+		--Show patient name and coverage label
+
+SELECT full_name, insurance_type,
+CASE 
+	WHEN insurance_type = 'Premium' THEN 'Full Cover'
+	WHEN insurance_type = 'Basic' THEN 'Partial Cover'
+	ELSE 'Self-Pay'
+END AS insurance_coverage
+FROM patients;
