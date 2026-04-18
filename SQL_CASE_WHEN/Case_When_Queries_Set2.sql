@@ -36,5 +36,18 @@ FROM Employees
 WHERE Salary > 80000;
 
 
-Q4. For each department, show the total salary of Active employees only (use CASE inside SUM to ignore Inactive ones).
-Show hint
+--Q4. For each department, show the total salary of Active employees only (use CASE inside SUM to ignore Inactive ones).
+
+SELECT Department,
+SUM(CASE
+	WHEN Status = 'Active' THEN Salary
+	ELSE 0
+END) AS Total_Active_Salary
+FROM Employees
+GROUP BY Department;
+
+
+
+
+
+
