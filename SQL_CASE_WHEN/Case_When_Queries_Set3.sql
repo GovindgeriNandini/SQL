@@ -66,4 +66,13 @@ CASE
 END AS availability_status
 FROM doctors;
 
+--Q7.  Classify ward admissions by ward_type: "ICU" as "Intensive Care", "Private" as "Premium Ward", "General" as "Standard Ward". 
+		--Show admission_id and the ward label.
 
+SELECT admission_id, ward_type,
+CASE
+	WHEN ward_type = 'ICU' THEN 'Intensive Care'
+	WHEN ward_type = 'Private' THEN 'Premium Ward'
+	ELSE 'Standard Ward'
+END AS ward_label
+FROM ward_admissions;
