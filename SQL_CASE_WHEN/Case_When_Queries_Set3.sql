@@ -89,3 +89,13 @@ END AS duration_label
 FROM appointments;
 
 
+--Q9. Show each patient's gender as "Male", "Female", or "Other" based on the gender column (M/F). 
+		--Show patient name and gender label.
+
+SELECT full_name,
+CASE 
+	WHEN gender = 'M' THEN 'Male'
+	WHEN gender = 'F' THEN 'Female'
+	ELSE 'Other'
+END AS gender_label
+FROM patients;
