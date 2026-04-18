@@ -33,4 +33,13 @@ CASE
 END AS fee_category
 FROM billing;
 		
+--Q4. Display appointment type with a priority flag: "Emergency" as "High Priority", "Routine" as "Normal", "Follow-up" as "Low Priority".
+		--Show appt_id and priority.
 
+SELECT appt_id,appt_type,
+CASE 
+	WHEN appt_type = 'Emergency' THEN 'High'
+	WHEN appt_type = 'Routine' THEN 'Normal'
+	ELSE 'Low'
+END AS priority
+FROM appointments;
