@@ -1,3 +1,6 @@
+--EASY 
+--DATA_SET : 2
+
 --Q1. Label each patient's age group: patients under 18 as "Minor", 18–59 as "Adult", 
 		--and 60 and above as "Senior". Show patient name, age, and the label.
 
