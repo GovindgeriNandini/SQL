@@ -99,3 +99,13 @@ CASE
 	ELSE 'Other'
 END AS gender_label
 FROM patients;
+
+--Q10. For each billing record, show whether a discount was applied: if discount > 0 then "Discount Applied", 
+		--else "No Discount". Show bill_id and discount status.
+
+SELECT bill_id, discount,
+CASE
+	WHEN discount > 0 THEN 'Discount Applied'
+	ELSE 'No Discount'
+END AS discount_status
+FROM billing;
