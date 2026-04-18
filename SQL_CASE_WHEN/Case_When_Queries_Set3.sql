@@ -22,5 +22,15 @@ END AS experience_tier
 FROM doctors;
 
 
+--Q3. For each bill, classify the consultation fee: below 1500 as "Low", 1500–2500 as "Moderate", above 2500 as "High". 
+		--Show bill_id and the category.
 
+SELECT bill_id, consultation_fee,
+CASE 
+	 WHEN consultation_fee < 1500  THEN 'Low'
+	 WHEN consultation_fee BETWEEN 1500 AND 2000 THEN 'Moderate'
+	 ELSE 'High'
+END AS fee_category
+FROM billing;
+		
 
