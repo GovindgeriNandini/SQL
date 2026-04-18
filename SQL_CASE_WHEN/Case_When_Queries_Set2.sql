@@ -46,8 +46,19 @@ END) AS Total_Active_Salary
 FROM Employees
 GROUP BY Department;
 
-
-
+--Q5. Join employees and orders. For each salesperson, classify their performance as: 
+       -- 'Star' (total orders > 2 AND total amount > 100000), 'Decent' (total amount 50000–100000), 
+       --  or 'Needs Work' otherwise. Show name, order count, total amount, and performance.
+SELECT e.Name, 
+COUNT(o.order_id) AS Order_Count,
+SUM(o.amount) AS Total_Amount,
+CASE
+	WHEN SUM(o.amount) > 100000 AND COUNT(o.order_id) > 2 THEN 'Star'
+	WHEN SUM(o.amount) >= 50000  THEN 'Decent'
+	ELSE 'Needs Work'
+END AS Performace
+FROM Employees e JOIN Orders o ON e.emp_id = o.emp_id
+GROUP BY e.Name, e.emp_id;
 
 
 
