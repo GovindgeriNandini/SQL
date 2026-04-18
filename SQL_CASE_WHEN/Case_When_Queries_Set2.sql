@@ -25,7 +25,16 @@ CASE
 END AS Bonus_Points
 FROM Orders;
 
-Q3. Show each employee's name, department, and a tax_bracket based on salary. Then filter to show only employees in the 'High' bracket.
+--Q3. Show each employee's name, department, and a tax_bracket based on salary. Then filter to show only employees in the 'High' bracket.
+SELECT Name, Department, 
+CASE 
+	WHEN Salary > 80000 THEN 'High'
+	WHEN Salary >= 50000 THEN 'Mid'
+	ELSE 'Low'
+END AS Tax_Bracket
+FROM Employees
+WHERE Salary > 80000;
+
 
 Q4. For each department, show the total salary of Active employees only (use CASE inside SUM to ignore Inactive ones).
 Show hint
