@@ -17,10 +17,6 @@ FROM Patients p LEFT JOIN Billing b ON p.patient_id = b.patient_id;
 --Q12. List each doctor with their department name and classify department budget: below 700000 as "Low Budget", 
 -- 		700000–1000000 as "Medium Budget", above 1000000 as "High Budget". Show doctor name, dept name, and budget category.
 
-
-
-
-
 SELECT doc.full_name, dep.dept_name, dep.budget,
 CASE
 	WHEN dep.budget < 700000 THEN 'Low'
