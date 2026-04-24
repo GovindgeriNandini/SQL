@@ -65,6 +65,23 @@ FROM ward_admissions
 GROUP BY severity;
 
 
+-- Q16. Show the total amount billed per payment method. Also add a label: 
+-- 		Cash as "Direct Pay", Card as "Digital Pay", Insurance as "Insured Pay". 
+-- 		Show method, total_billed, and method_label.
+
+SELECT payment_method, 
+SUM(consultation_fee+medicine_cost+test_charges) AS Total_Billed,
+CASE 
+	WHEN payment_method = 'Cash' THEN 'Direct Pay'
+	WHEN payment_method = 'Card' THEN 'Digital Pay'
+	WHEN payment_method = 'Insurance' THEN 'Insured Pay'
+END AS Method_Label
+FROM billing
+GROUP BY payment_method;
+
+
+
+
 
 
 
