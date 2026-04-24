@@ -52,6 +52,19 @@ FROM Appointments a LEFT JOIN Doctors d ON a.doctor_id = d.doctor_id;
 
 
 
+-- Q15. Classify each patient's severity level in ward admissions: 1–2 as "Mild", 3 as "Moderate", 4–5 as "Critical".
+-- 		Count the number of admissions per severity label.
+
+SELECT severity, COUNT(*) AS Admission_Count,
+CASE
+	WHEN severity BETWEEN 1 AND 2 THEN 'Mild'
+	WHEN severity = 3 THEN 'Moderate'
+	ELSE 'Critical'
+END AS Severity_Label
+FROM ward_admissions 
+GROUP BY severity;
+
+
 
 
 
