@@ -38,6 +38,21 @@ CASE
 END AS Stay_Category
 FROM ward_admissions;
 
+--Q14. Show each appointment with the doctor's name and a charge estimate: 
+-- 	   Emergency at 3× the doctor's hourly_rate, Routine at 1× hourly_rate, 
+-- 	   Follow-up at 0.5× hourly_rate. Show appt_id, doctor name, appt_type, and estimated_charge.
+
+SELECT a.appt_id, d.full_name, a.appt_type, 
+CASE
+	WHEN a.appt_type = 'Routine' THEN d.hourly_rate * 1
+	WHEN a.appt_type = 'Emergency' THEN d.hourly_rate * 3
+	WHEN a.appt_type = 'Follow-up' THEN d.hourly_rate * 0.5
+END AS Estimated_Charge
+FROM Appointments a LEFT JOIN Doctors d ON a.doctor_id = d.doctor_id;
+
+
+
+
 
 
 
